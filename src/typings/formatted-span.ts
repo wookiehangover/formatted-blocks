@@ -1,8 +1,9 @@
-import { UnistNode } from './unist-node'
+import { UnistNode } from './unist-node';
 
 export interface FormatOptions {
   bold?: boolean;
   italic?: boolean;
+  italics?: boolean;
   link?: boolean;
 }
 

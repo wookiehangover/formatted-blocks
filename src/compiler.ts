@@ -1,14 +1,25 @@
-import compact = require('lodash/compact')
-import assign = require('lodash/assign')
-import toHast = require('mdast-util-to-hast')
+import { toHast } from 'mdast-util-to-hast'
 import toFormattedText from './formatted-text'
-import { UnistNode } from './typings/unist-node'
 import { FormattedText } from './typings/formatted-text'
 
-export = function FormattedBlocks() {
-  this.Compiler = (node: UnistNode): FormattedText => {
-    const hast = toHast(node)
-    const children = compact(hast.children.map(toFormattedText))
-    return assign(hast, { children })
+// Helper function to replace lodash compact
+function compact<T>(array: (T | null | undefined)[]): T[] {
+  return array.filter((item): item is T => item != null)
+}
+
+interface Processor {
+  Compiler: (node: unknown) => FormattedText
+}
+
+function FormattedBlocks(this: Processor): void {
+  this.Compiler = (node: unknown): FormattedText => {
+    const hast = toHast(node as any)
+    const children = compact((hast as any).children?.map(toFormattedText) || [])
+    return {
+      type: 'FormattedText',
+      children: children as FormattedText[]
+    }
   }
 }
+
+export default FormattedBlocks

@@ -1,43 +1,83 @@
 import { HandlerList } from './typings'
 
 const handlers: HandlerList = {
-  'em': node => ({
+  em: () => ({
     type: 'FormattedSpan',
-    format: { italic: true }
+    format: { italic: true },
   }),
 
-  'strong': node => ({
+  strong: () => ({
     type: 'FormattedSpan',
-    format: { bold: true }
+    format: { bold: true },
   }),
 
-  'i': node => ({
+  i: () => ({
     type: 'FormattedSpan',
-    format: { italics: true }
+    format: { italics: true },
   }),
 
-  'b': node => ({
+  b: () => ({
     type: 'FormattedSpan',
-    format: { bold: true }
+    format: { bold: true },
   }),
 
-  'a': node => ({
+  a: (node) => ({
     type: 'FormattedSpan',
     destination: {
       discriminator: 'WebDestination',
-      url: node.properties.href
-    }
+      url: (node.properties?.['href'] as string) || '',
+    },
   }),
 
-  'p': node => ({
+  p: (node) => ({
     type: 'FormattedText',
-    tagName: node.tagName
+    tagName: node.tagName || 'p',
   }),
 
-  'h1': node => ({
+  h1: (node) => ({
     type: 'FormattedText',
-    tagName: node.tagName
-  })
+    tagName: node.tagName || 'h1',
+  }),
+
+  h2: (node) => ({
+    type: 'FormattedText',
+    tagName: node.tagName || 'h2',
+  }),
+
+  h3: (node) => ({
+    type: 'FormattedText',
+    tagName: node.tagName || 'h3',
+  }),
+
+  h4: (node) => ({
+    type: 'FormattedText',
+    tagName: node.tagName || 'h4',
+  }),
+
+  h5: (node) => ({
+    type: 'FormattedText',
+    tagName: node.tagName || 'h5',
+  }),
+
+  h6: (node) => ({
+    type: 'FormattedText',
+    tagName: node.tagName || 'h6',
+  }),
+
+  ul: (node) => ({
+    type: 'FormattedText',
+    tagName: node.tagName || 'ul',
+  }),
+
+  ol: (node) => ({
+    type: 'FormattedText',
+    tagName: node.tagName || 'ol',
+  }),
+
+  li: (node) => ({
+    type: 'FormattedText',
+    tagName: node.tagName || 'li',
+  }),
 }
 
 export default handlers

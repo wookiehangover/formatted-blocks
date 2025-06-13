@@ -1,8 +1,8 @@
 'use strict'
 
-const unified = require('unified')
-const markdown = require('remark-parse')
-const formattedBlocks = require('./lib/compiler')
+const { unified } = require('unified')
+const remarkParse = require('remark-parse')
+const { default: formattedBlocks } = require('./lib/compiler')
 
 const input = `
 The *quick*, _brown_ fox jumped over the [lazy dog](https://google.com/?s=lazy-dog)
@@ -11,10 +11,13 @@ The *quick*, _brown_ fox jumped over the [lazy dog](https://google.com/?s=lazy-d
 `
 
 const processor = unified()
-  .use(markdown)
+  .use(remarkParse)
   .use(formattedBlocks)
 
 processor.process(input, (err, file) => {
-  console.log(err)
-  console.log(JSON.stringify(file.contents, null, 2))
+  if (err) {
+    console.error('Error:', err)
+  } else {
+    console.log('Result:', JSON.stringify(file.result, null, 2))
+  }
 })

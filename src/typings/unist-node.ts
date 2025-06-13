@@ -1,17 +1,12 @@
-export interface Children {
-  [index: number]: UnistNode
-  length: number
-}
-
 export interface UnistNode {
-  type: string
-  text?: string
-  value?: string
-  tagName?: string
-  element?: string
-  position?: any
-  children?: Children
+  type: string;
+  text?: string;
+  value?: string;
+  tagName?: string;
+  element?: string;
+  position?: unknown;
+  children?: UnistNode[];
   properties?: {
-    [index: string]: any
+    [index: string]: unknown;
   };
 }
