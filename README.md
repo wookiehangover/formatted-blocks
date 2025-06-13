@@ -9,15 +9,6 @@
 
 FormattedBlocks is a TypeScript library that converts Markdown content into a structured, platform-independent format suitable for rich text rendering across different platforms and frameworks. It transforms Markdown AST (Abstract Syntax Tree) into a normalized format that preserves formatting information while being easy to consume by various rendering engines.
 
-## Features
-
-- 🚀 **Modern TypeScript** - Built with TypeScript 5.x with strict type checking
-- 📦 **Zero Dependencies** - No runtime dependencies (except for unified ecosystem)
-- 🎯 **Platform Independent** - Output format works across web, mobile, and desktop
-- 🔧 **Extensible** - Easy to extend with custom handlers for new elements
-- 📝 **Rich Formatting** - Supports bold, italic, links, headings, and more
-- 🌳 **Tree Structure** - Maintains hierarchical document structure
-
 ## Installation
 
 ```bash
@@ -256,66 +247,4 @@ tests/
 └── edge-cases.test.ts   # Edge cases and error handling
 ```
 
-### Testing
 
-The project has comprehensive unit tests with excellent coverage:
-
-- **98%+ Statement Coverage**
-- **77%+ Branch Coverage**
-- **100% Function Coverage**
-
-Tests cover:
-- ✅ All core functionality
-- ✅ Edge cases and error handling
-- ✅ Type definitions
-- ✅ Integration scenarios
-- ✅ Malformed input handling
-- ✅ Performance edge cases
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes
-4. Run tests and linting (`npm run lint`)
-5. Commit your changes (`git commit -m 'Add amazing feature'`)
-6. Push to the branch (`git push origin feature/amazing-feature`)
-7. Open a Pull Request
-
-### Code Style
-
-This project uses:
-- **ESLint** for code linting
-- **Prettier** for code formatting
-- **TypeScript** with strict mode enabled
-
-Please ensure your code passes all linting checks before submitting.
-
-## Changelog
-
-### v1.0.0 (2024)
-- 🎉 **Major modernization update**
-- ⬆️ Updated to TypeScript 5.x
-- ⬆️ Updated all dependencies to latest versions
-- 🗑️ Removed Lodash dependency (replaced with native JavaScript)
-- 📦 Switched from Yarn to npm
-- 🔧 Added modern tooling (ESLint, Prettier)
-- 📝 Comprehensive README and documentation
-- 🏗️ Modern build system with source maps and declarations
-
-## License
-
-MIT © [Sam Breed](https://github.com/wookiehangover)
-
-## Related Projects
-
-- [unified](https://github.com/unifiedjs/unified) - Interface for processing text with syntax trees
-- [remark](https://github.com/remarkjs/remark) - Markdown processor powered by plugins
-- [mdast-util-to-hast](https://github.com/syntax-tree/mdast-util-to-hast) - Transform mdast to hast
-
-## Support
-
-If you have questions or need help, please:
-1. Check the [documentation](#api-reference)
-2. Search [existing issues](https://github.com/wookiehangover/formatted-blocks/issues)
-3. Create a [new issue](https://github.com/wookiehangover/formatted-blocks/issues/new) if needed
